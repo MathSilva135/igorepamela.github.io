@@ -1,0 +1,218 @@
+/* --- GERAL E VARIÁVEIS --- */
+:root {
+    --color-primary: #6a5acd; /* Roxo suave / Lavanda */
+    --color-secondary: #f4f4f9; /* Fundo claro */
+    --color-dark: #333;
+    --color-light: #fff;
+    --color-gold: #d4af37; /* Dourado para detalhes */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-dark);
+}
+
+/* --- MENSAGEM DE BOAS-VINDAS (MODAL) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--color-light);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 90%;
+    width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h2 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-top: 0;
+}
+
+.assinatura-modal {
+    margin-top: 20px;
+    font-style: italic;
+    color: #555;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.close-button:hover {
+    color: var(--color-dark);
+}
+
+/* --- SLIDESHOW DE FUNDO --- */
+.background-slideshow {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    /* Adicione suas imagens aqui */
+    animation: slideshow 20s infinite;
+}
+
+@keyframes slideshow {
+    0% { background-image: url('fotos/foto1.jpg'); }
+    33% { background-image: url('fotos/foto2.jpg'); }
+    66% { background-image: url('fotos/foto3.jpg'); }
+    100% { background-image: url('fotos/foto4.jpg'); }
+}
+
+/* --- SEÇÃO HERO (CABEÇALHO) --- */
+.hero {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-light);
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Escurece o fundo para o texto ser legível */
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 4em;
+    margin: 0;
+    font-weight: 700;
+    color: var(--color-light);
+}
+
+.hero-content .subtitulo {
+    font-size: 1.2em;
+    font-family: var(--font-body);
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* --- SEÇÃO DA CARTA --- */
+.carta-section {
+    background-color: var(--color-light);
+}
+.carta-box {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fafafa;
+    text-align: justify;
+}
+
+.assinatura-carta {
+    text-align: right;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+/* --- SEÇÃO DA GALERIA --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* --- RODAPÉ --- */
+.footer {
+    background: var(--color-dark);
+    color: var(--color-secondary);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .section-title {
+        font-size: 2em;
+    }
+}
